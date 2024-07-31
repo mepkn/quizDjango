@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path
+from django.urls import include, path
 
 
 def testfn(request):
@@ -10,4 +10,5 @@ def testfn(request):
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("test/", testfn),
+    path("quiz/", include("quizzes.urls")),
 ]
