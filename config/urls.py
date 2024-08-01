@@ -10,5 +10,5 @@ def testfn(request):
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("test/", testfn),
-    path("quiz/", include("quizzes.urls")),
+    path("", include("quizzes.urls")),
 ]
