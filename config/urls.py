@@ -1,14 +1,10 @@
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
-
-
-def testfn(request):
-    return HttpResponse("Testing 1 2 3 ... OK")
-
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("test/", testfn),
-    path("", include("quizzes.urls")),
+    path("", TemplateView.as_view(template_name="quizzes/index.html"), name="index"),
+    path("questions/", include("quizzes.urls")),
 ]
